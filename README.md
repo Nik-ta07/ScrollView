@@ -1,50 +1,173 @@
-# Welcome to your Expo app 👋
+# Todo App with Tabs, Drawer Navigation & Backend
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A professional React Native Todo app built with Expo Router, featuring tab navigation, drawer navigation, and a complete backend API integration.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- **Todo Management**: Create, edit, delete, and mark todos as complete
+- **Tab Navigation**: Todos and Profile tabs with different content
+- **Drawer Navigation**: Side drawer with the same functionality as tabs
+- **Backend API**: Express.js server with RESTful endpoints for todos
+- **Professional UI**: Modern, clean design with proper styling
+- **Error Handling**: Comprehensive error handling and loading states
+- **API Integration**: Real-time data fetching and updates
+- **Priority System**: High, medium, and low priority todos
+- **Statistics**: Todo completion stats in profile
 
-   ```bash
-   npm install
-   ```
+## 📱 App Structure
 
-2. Start the app
+```
+app/
+├── (drawer)/
+│   ├── _layout.tsx          # Drawer navigation layout
+│   ├── (tabs)/
+│   │   ├── _layout.tsx      # Tab navigation layout
+│   │   ├── index.tsx        # Todos tab - Todo management
+│   │   └── profile.tsx      # Profile tab - User settings & stats
+│   └── profile.tsx          # Drawer profile screen
+├── _layout.tsx              # Root layout
+└── index.tsx                # Entry point
 
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+backend/
+├── server.js                # Express.js server with todo endpoints
+└── package.json             # Backend dependencies
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🛠️ Setup Instructions
 
-## Learn more
+### 1. Install Dependencies
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+# Install mobile app dependencies
+npm install
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+# Install backend dependencies
+cd backend
+npm install
+```
 
-## Join the community
+### 2. Start the Backend Server
 
-Join our community of developers creating universal apps.
+```bash
+cd backend
+npm start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+The backend will run on `http://localhost:3000`
+
+### 3. Start the Mobile App
+
+```bash
+# In the root directory
+npm start
+```
+
+Then choose your platform:
+
+- Press `i` for iOS simulator
+- Press `a` for Android emulator
+- Press `w` for web browser
+
+## 🔧 Backend API Endpoints
+
+### Health Check
+
+- `GET /api/health` - Check if backend is running
+
+### Users
+
+- `GET /api/users` - Get all users
+- `GET /api/users/:id` - Get user by ID
+
+### Posts
+
+- `GET /api/posts` - Get all posts
+- `GET /api/posts/:id` - Get post by ID
+- `POST /api/posts` - Create new post
+- `PUT /api/posts/:id/like` - Like a post
+
+## 📱 App Features
+
+### Home Tab
+
+- **Posts Feed**: Displays posts from the backend
+- **Like Functionality**: Tap heart to like posts
+- **Pull to Refresh**: Swipe down to refresh content
+- **Loading States**: Professional loading indicators
+- **Error Handling**: User-friendly error messages
+
+### Profile Tab
+
+- **User Information**: Displays user data from backend
+- **Settings Menu**: Account, notifications, privacy options
+- **Support Section**: Help center, contact, about
+- **Logout Functionality**: Secure logout with confirmation
+
+### Drawer Navigation
+
+- **Same Functionality**: Drawer provides same features as tabs
+- **Professional Design**: Clean, modern drawer interface
+- **Consistent Navigation**: Seamless experience between tabs and drawer
+
+## 🎨 Design Features
+
+- **Modern UI**: Clean, professional design
+- **Consistent Styling**: Unified color scheme and typography
+- **Responsive Layout**: Works on all screen sizes
+- **Smooth Animations**: Native feel with proper transitions
+- **Loading States**: Professional loading indicators
+- **Error States**: User-friendly error handling
+
+## 🔧 Technical Stack
+
+### Frontend
+
+- **React Native**: Cross-platform mobile development
+- **Expo Router**: File-based navigation
+- **TypeScript**: Type-safe development
+- **React Navigation**: Tab and drawer navigation
+- **Expo Vector Icons**: Professional iconography
+
+### Backend
+
+- **Express.js**: Node.js web framework
+- **CORS**: Cross-origin resource sharing
+- **Body Parser**: Request body parsing
+- **RESTful API**: Standard HTTP methods
+
+## 🚀 Getting Started for Beginners
+
+This app is designed to be beginner-friendly while maintaining professional standards:
+
+1. **Simple Structure**: Clear file organization
+2. **Basic Code**: Easy to understand React patterns
+3. **Professional Features**: Real-world functionality
+4. **Good Practices**: Proper error handling and loading states
+5. **Documentation**: Comprehensive comments and README
+
+## 📝 Development Notes
+
+- The app uses `http://localhost:3000` for API calls
+- Make sure the backend is running before testing the app
+- The app includes proper error handling for offline scenarios
+- All components are properly typed with TypeScript
+- The design follows modern mobile app patterns
+
+## 🎯 Next Steps
+
+- Add authentication system
+- Implement real-time updates with WebSockets
+- Add push notifications
+- Include image upload functionality
+- Add search and filtering features
+
+## 📞 Support
+
+If you encounter any issues:
+
+1. Make sure both backend and frontend are running
+2. Check that the API URL is correct in the app
+3. Verify all dependencies are installed
+4. Check the console for error messages
+
+Happy coding! 🎉
