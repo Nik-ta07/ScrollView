@@ -1,9 +1,11 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useThemeLocal } from "@/contexts/ThemeContext";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
   ScrollView,
   StyleSheet,
+  Switch,
   Text,
   TouchableOpacity,
   View,
@@ -11,6 +13,7 @@ import {
 
 export default function ProfileScreen() {
   const router = useRouter();
+  const { scheme, toggle } = useThemeLocal();
   const handleLogout = () => {
     router.replace("/login");
   };
@@ -26,6 +29,16 @@ export default function ProfileScreen() {
       </View>
 
       <View style={styles.content}>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Appearance</Text>
+          <View style={styles.menuItem}>
+            <View style={styles.menuItemLeft}>
+              <IconSymbol name="moon.fill" color="#007aff" size={24} />
+              <Text style={styles.menuItemText}>Dark Mode</Text>
+            </View>
+            <Switch value={scheme === "dark"} onValueChange={toggle} />
+          </View>
+        </View>
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Account</Text>
 

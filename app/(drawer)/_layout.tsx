@@ -1,10 +1,13 @@
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import { useThemeLocal } from "@/contexts/ThemeContext";
 import { useTheme } from "@react-navigation/native";
 import { Drawer } from "expo-router/drawer";
 import React from "react";
+import { Switch, View } from "react-native";
 
 export default function DrawerLayout() {
   const { colors } = useTheme();
+  const { scheme, toggle } = useThemeLocal();
   return (
     <Drawer
       screenOptions={{
@@ -18,6 +21,11 @@ export default function DrawerLayout() {
           backgroundColor: colors.primary,
         },
         headerTintColor: "#ffffff",
+        headerRight: () => (
+          <View style={{ paddingRight: 12 }}>
+            <Switch value={scheme === "dark"} onValueChange={toggle} />
+          </View>
+        ),
       }}
     >
       <Drawer.Screen
