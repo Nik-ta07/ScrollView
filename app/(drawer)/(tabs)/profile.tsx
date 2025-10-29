@@ -22,7 +22,7 @@ export default function ProfileScreen() {
           <IconSymbol name="person.fill" color="#ffffff" size={40} />
         </View>
         <Text style={styles.userName}>John Doe</Text>
-        <Text style={styles.userEmail}>john.doe@example.com</Text>
+        <Text style={styles.userEmail}>john@example.com</Text>
       </View>
 
       <View style={styles.content}>
